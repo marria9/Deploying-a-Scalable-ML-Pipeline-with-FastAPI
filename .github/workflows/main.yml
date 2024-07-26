@@ -1,5 +1,4 @@
 name: Manual Workflow
-
 on:
   push:
     branches:
@@ -16,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.8'  # Updated to Python 3.8
+          python-version: '3.8'
 
       - name: Install dependencies
         run: |
@@ -24,8 +23,15 @@ jobs:
           pip install -r requirements.txt
           pip install flake8 pytest
 
+      - name: Verify installed packages
+        run: pip list
+
       - name: Run pytest
-        run: pytest
+        run: |
+          echo "Running pytest..."
+          pytest
 
       - name: Run flake8
-        run: flake8 .
+        run: |
+          echo "Running flake8..."
+          flake8 .
