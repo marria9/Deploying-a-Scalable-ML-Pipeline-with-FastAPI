@@ -3,13 +3,16 @@ import json
 import requests
 
 # TODO: send a GET using the URL http://127.0.0.1:8000
-r = # Your code here
+r = "http://127.0.0.1:8000/"
+get_response = requests.get(r)
+# Your code here
 
 # TODO: print the status code
 # print()
+print("Status Code:", get_response.status_code)
 # TODO: print the welcome message
 # print()
-
+print("Welcome message:", get_response.json())
 
 
 data = {
@@ -30,9 +33,13 @@ data = {
 }
 
 # TODO: send a POST using the data above
-r = # Your code here
+r = "http://127.0.0.1:8000/data/"
+post_response = requests.post(r, json = data)
+# Your code here
 
 # TODO: print the status code
 # print()
+print("Status Code:", post_response.status_code)
 # TODO: print the result
 # print()
+print("Result", post_response.json())
